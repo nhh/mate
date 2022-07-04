@@ -57,6 +57,14 @@ strict class User {
 
 ```
 
+Unified Error handling try catch + error values
+
+```
+// Response is type of Optional<Response>
+// the try keyword takes the response type from the caller and wraps it into an Optional.
+var response = try httpClient.sendRequest("GET", "https://example.com")
+```
+
 ### Ideas
 
 - Makes async/paralell programming blue
