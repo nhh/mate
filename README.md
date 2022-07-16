@@ -100,10 +100,6 @@ return future.get();
 
 ### Ideas
 
-- Makes async/paralell programming blue
-  - I dont know how yet, but I will figure out
-  - Maybe something like `var result = willReturnAFuture().await()`
-  - Future.all(fut1, fut2, fut3).await()
 - Safety concept like deno
   - Only allow explicit claims to ressources like "file", "net", "os", "env"
 - Extreme good embeddability
