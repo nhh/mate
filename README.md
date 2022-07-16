@@ -79,7 +79,7 @@ try {
 
 ## Everything is awaitable
 
-By default every function is synchronous. You can await a function with the keyword `await`. There is no need to mark a function as async. The keyword will wrap the function in a CompletableFuture in a thread pool executor. 
+By default every function is synchronous. You can await a function with the keyword `await`. There is no need to mark a function as async. The keyword will wrap the function in a CompletableFuture in schedule it in a thread pool executor. 
 
 Its basically just a instruction to the vm that this function should be run on a separat thread/core.
 
