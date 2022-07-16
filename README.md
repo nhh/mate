@@ -62,7 +62,6 @@ strict class User {
 Combining try+catch mechanisms with response values. 
 
 ```
-// Response is type of Optional<Response>
 // the try keyword takes the response type from the caller and wraps it into an Optional.
 var response = try httpClient.sendRequest("GET", "https://example.com")
 ```
