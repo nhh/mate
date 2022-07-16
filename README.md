@@ -102,9 +102,9 @@ return future.get();
 
 - Safety concept like deno
   - Only allow explicit claims to ressources like "file", "net", "os", "env"
-- Extreme good embeddability
+- Good embeddability
   - Give the Java program a context about memory usage, statistics, and so on
-  - Something loke rubies GC.stats and so on.
+  - Something loke rubys GC.stats and so on.
 - Metaprogramming and Queryability
   - Queryable types like c#
   - Hooks extensibility like ruby
