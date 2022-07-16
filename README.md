@@ -67,6 +67,16 @@ Combining try+catch mechanisms with response values.
 var response = try httpClient.sendRequest("GET", "https://example.com")
 ```
 
+The `try` keyword is a replacement for the following code:
+
+```
+try {
+  var response = httpClient.sendRequest("GET", "https://example.com")
+  return Optional.of(response)
+} catch (HttpException e) {
+  return Optional.empty();
+}
+```
 
 
 ### Ideas
