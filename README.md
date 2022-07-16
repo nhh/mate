@@ -2,8 +2,7 @@
 
 ## A embeddable programming language for every day usage
 
-
-## Unified Error handling try catch + error values
+### Unified Error handling try catch + error values
 
 Combining try+catch mechanisms with response values. 
 
@@ -23,7 +22,7 @@ try {
 }
 ```
 
-## Everything is awaitable
+### Everything is awaitable
 
 By default every function is synchronous. You can await a function with the keyword `await`. There is no need to mark a function as async. The keyword will wrap the function in a CompletableFuture in schedule it in a thread pool executor. 
 
