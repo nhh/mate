@@ -79,7 +79,9 @@ try {
 
 ## Everything is awaitable
 
-You can await every function with the keyword `await`. There is no need to mark a function as async. The keyword will wrap the function in a asynchronous, paralell executor and will be executed on a different thread/core. Its basically just a instruction to the vm that this function should be run on a separat thread/core.
+By default every function is synchronous. You can await a function with the keyword `await`. There is no need to mark a function as async. The keyword will wrap the function in a CompletableFuture in a thread pool executor. 
+
+Its basically just a instruction to the vm that this function should be run on a separat thread/core.
 
 ```
 var response = await httpClient.sendRequest("GET", "https://example.com")
