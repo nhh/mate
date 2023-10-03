@@ -1,6 +1,32 @@
 # Mate
 
-## A embeddable programming language for every day usage
+### Syntax ideas
+
+Combining try+catch mechanisms with response values. 
+
+```
+
+class Human
+
+end
+
+class Human {
+
+}
+
+class Human <
+
+>
+
+class Human (
+
+)
+
+Human {
+
+}
+
+```
 
 ### Unified Error handling try catch + error values
 
