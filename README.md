@@ -50,16 +50,6 @@ go (displayLoadingAnimation, calculate, longRunning, longRunning2, longRunning3)
 teardown()
 ```
 
-The `await` keyword is a replacement for the following code:
-
-
-```
-ExecutorService pool = Executors.newFixedThreadPool(2);
-Future<HttpResponse> future = pool.submit(() -> new HttpResponse());
-future.wait();
-return future.get();
-```
-
 ### Getter Setter
 
 ```
