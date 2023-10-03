@@ -60,9 +60,10 @@ future.wait();
 return future.get();
 ```
 
-### Mixins sketch
+### Getter Setter
 
 ```
+
 # Getter setter
 class Human {
   Date @birthday { get, set } # used with get and set keywords
@@ -82,6 +83,11 @@ class Human {
 
 }
 
+```
+
+### Mixins
+
+```
 # Can define the inner "interface" like variables and state
 # Where interfaces define the methods of a class
 module Formats {
