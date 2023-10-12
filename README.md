@@ -28,6 +28,23 @@ Human {
 
 ```
 
+### conditional returns
+syntactic sugar for early exit/ guard clauses
+```
+
+def doSomething(name)
+return (!name) "This is a default message"
+return (name.length <= 3) "This is a default message"
+
+# Or
+
+return "This is a default message" if (name.length <= 3)
+return "This is a default message" if (!name)
+
+end
+
+```
+
 ### Unified Error handling try catch + error values
 
 Combining try+catch mechanisms with response values. 
