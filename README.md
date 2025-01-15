@@ -50,6 +50,29 @@ end
 Combining try+catch mechanisms with response values. 
 
 ```
+// Idea  15.01.2025
+// Basically objects are always Response|Error and can be checked with the 'is' operator
+// Why returning two thing when one might be enough? (just a thought)
+response := httpClient.sendRequest("GET", "https://example.com")
+
+if (response is Error) {
+  panic(response.message())
+}
+
+resJson := response.json() // type Json|Error
+
+if (resJson is Error) {
+  panic(resJson.message())
+}
+
+// Idea  15.01.2025
+// Method invocation chaining. The first error that happens will be returned. Kind of a safe navigation operator
+// Basically invocations are always safe and can be chained
+json := httpClient < sendRequest("GET", "https://example.com") < json()
+
+if (response is Error) {
+  panic(response.message())
+}
 
 // Handling errors
 var {response, error} = try httpClient.sendRequest("GET", "https://example.com")
