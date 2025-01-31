@@ -126,9 +126,15 @@ var response = myModule.triggerError()!
 var response = panic myModule.triggerError()
 
 // Maybe panic is a function thats generic and takes a function that returns smth+error and wraps error handling
-var response = errors.panic(myModule.triggerError())
+panic<(T, U)>(func(): (T, U) ): T
+
+triggerError(): (String, Error)
+
+var response = errors.panic<String, Error>(myModule.triggerError())
+var response = errors.panic(myModule.triggerError()) // inferred version
 
 // not part of std, part of the language
+// translation into error wrap and panic code
 var response = panic myModule.triggerError()
 ```
 
