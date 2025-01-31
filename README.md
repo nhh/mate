@@ -44,7 +44,7 @@ I often use these words in ways that are not strictly related to the meaning of 
     eat(): Void
   }
 
-  newHuman(): Human
+  newHuman(params: CreateParams): Human
   veryPublic(): Void
 ```
 
