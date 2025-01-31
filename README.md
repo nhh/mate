@@ -128,6 +128,9 @@ var response = panic myModule.triggerError()
 // Maybe panic is a function thats generic and takes a function that returns smth+error and wraps error handling
 panic<(T, U)>(func(): (T, U) ): T
 
+// Maybe with generic selects
+panic<(T, U is Error)>(func(): (T, U) ): T
+
 triggerError(): (String, Error)
 
 var response = errors.panic<String, Error>(myModule.triggerError())
