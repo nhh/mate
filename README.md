@@ -1,30 +1,115 @@
 # Mate
 
-### Syntax ideas
+## Syntax ideas
 
-Combining try+catch mechanisms with response values. 
+### module information (header/interface)
 
+This whole language is influenced by the use of the following languages in order: ruby -> java -> ts -> golang -> clang
+
+31.12.2025. This is inspired by Clang header files, Golang modules (folders) the chapter 4 "Modules should be deep" in "A philosophy of software design" by John Ousterhout
+
+I think I dont want to have classes anymore. The more I work with go and C where no classes exist, I think having a module structure coupled to folders is enough. 
+
+
+- Variables are private by default (file scope)
+- Variables can be marked as module available (module scope)
+- Variables cannot be included in module definition, which makes it public
+
+- Public API surface must be implemented somewhere in src/humans (the whole folder is the module)
+- Module definition dont have an implementation
+- Module implementations cannot define public module api, needs to be done via `.mod` file
+
+// ts: type -> attributes and functions
+// c: struct -> attribute and functions
+// java: interface -> only functions
+// golang: struct[type|interface] a struct can either be a type or a interface
+`type`, `interface`, `struct`
+
+I often use these words in ways that are not strictly related to the meaning of it in java/ts/c
+
+`src/humans/.mod`
+```ts
+
+  // types are PascalCase
+  // methods are lowerCamelCase
+  // attributes are lowerCamelCase
+
+  struct CreateParams {
+    fullname: String
+  }
+
+  struct Human {
+    speak(): Void
+    shout(): Void
+    eat(): Void
+  }
+
+  newHuman(): Human
+  veryPublic(): Void
 ```
 
-class Human
+`src/humans/human.m`
+```ts
+  // std -> standard lib
+  // src -> user code
+  // pkg -> dependencies
+  include "std/console"
+  include "pkg/yaml"
+  include "src/human"
+  
 
-end
+  // Can be accessed by all files in src/humans (whole module)
+  mod interalVariable: string
 
-class Human {
+  // Struct are implementations and only have attributes
+  // (thoughts) Need to think more about type def and struct initialization. And how it is going to be used
+  var admin: Human = { 
+    fullname = ""
+  }
 
-}
+  Human::speak(): void {
+    console::writeLine(this.fullname)
+  }
 
-class Human <
+  Human::shout(): void {
+    console::writeLine(this.fullname.toUpperCase())
+  }
 
->
+  Human::eat(): void {}
 
-class Human (
+  Human::someInternalMethod(): void {}
 
-)
+  newHuman(): Human {
+   return admin
+  }
 
-Human {
+  triggerError(): String, Error {}
+```
 
-}
+`main.m`
+```ts
+include "src/humans"
+
+humans::veryPublic()
+
+var human = humans::newHuman()
+```
+
+
+Combining try+catch mechanisms with response values.
+
+EDIT: 31.01.2025
+
+every `try` keyword captures exceptions being thrown and return it as seperate parameter like in go. But this is opt in. (Some scripts panic top level anyway)
+
+
+```
+var response = myModule.triggerError() // by default panic
+var response, error = try myModule.triggerError() // captures paniced module func and returns the error as value
+
+// A function can mark its return value to inform the caller
+
+
 
 ```
 
@@ -175,7 +260,7 @@ class Human includes Formats {
   - Only allow explicit claims to ressources like "file", "net", "os", "env"
 - Are there differences between primitives and not?
   - I dont think so. (String, Number, Boolean) ~> (Str, Num, Bool)?
-- No inheritance, only modules/mixins with limited scope (no access to local/instance/class variables)
+- ~No inheritance, only modules/mixins with limited scope (no access to local/instance/class variables)~
 - Easy and safe Concurrency and Paralellism mechanisms
     - await/go semantics
     - Auto scheduled
