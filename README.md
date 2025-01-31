@@ -10,7 +10,6 @@ This whole language is influenced by the use of the following languages in order
 
 I think I dont want to have classes anymore. The more I work with go and C where no classes exist, I think having a module structure coupled to folders is enough. 
 
-
 - Variables are private by default (file scope)
 - Variables can be marked as module available (module scope)
 - Variables cannot be included in module definition, which makes it public
@@ -34,11 +33,21 @@ I often use these words in ways that are not strictly related to the meaning of 
   // methods are lowerCamelCase
   // attributes are lowerCamelCase
 
-  struct CreateParams {
+  const (
+    Foo: Int64
+    Bar: String
+    HttpTimeout: Int
+  )
+
+  var (
+    Abc: String
+  )
+
+  type CreateParams {
     fullname: String
   }
 
-  struct Human {
+  type Human {
     speak(): Void
     shout(): Void
     eat(): Void
@@ -55,6 +64,7 @@ I often use these words in ways that are not strictly related to the meaning of 
   // pkg -> dependencies
   include "std/io/console"
   include "std/array/list"
+  include "std/array/v2/list"
   include "pkg/github.com/nhh/m8-yaml/yaml"
 
   include "src/human"
@@ -64,9 +74,7 @@ I often use these words in ways that are not strictly related to the meaning of 
 
   // Struct are implementations and only have attributes
   // (thoughts) Need to think more about type def and struct initialization. And how it is going to be used
-  var admin: Human = { 
-    fullname = ""
-  }
+  var admin: Human = { fullname = "" }
 
   var admin: Human[] = []
 
