@@ -71,17 +71,17 @@ I often use these words in ways that are not strictly related to the meaning of 
   var admin: Human[] = []
 
    Human::speak(): void {
-    io::console::writeLine(this.fullname)
+    io.console.writeLine(this.fullname)
   }
 
   Human::shout(): void {
-    io::console::writeLine(this.fullname.toUpperCase())
+    io.console.writeLine(this.fullname.toUpperCase())
   }
 
   Human::eat(): void {}
 
   someInternalMethod(): void {
-    io::console::writeLine(admin.toString())
+    io.console.writeLine(admin.toString())
   }
 
   newHuman(): Human {
@@ -95,7 +95,7 @@ I often use these words in ways that are not strictly related to the meaning of 
 ```ts
 include "src/humans"
 
-humans::veryPublic()
+humans.veryPublic()
 
 var human = humans::newHuman()
 ```
@@ -141,18 +141,24 @@ var response = errors.panic(myModule.triggerError()) // inferred version
 var response = panic myModule.triggerError()
 ```
 
-### parameter/return value mapping operator
+### parameter/return value mapping operator (pipe) `|` or `>>` or `>` or `|>`
 
 ```
 // I need generics
-map(T[], (T number):T): T[]
-filter(T[], (T number): T): T[]
+map<T>(T[], (T number): T): T[]
+filter<T>(T[], (T number): Boolean): T[]
+concat<T>(T[]): String
+upperCase<T>(T[]): String
 
+specializedMethod(param: String): String
 
 var numbers: int[] = [1,2,3,4,5,6]
 
-var myList = list.filter(numbers, (num: int) => num >= 2)) >> list.map((num: int) => num * 2))
-
+var upperCaseStringifiedNumber = list.filter(numbers, (num: int) => num >= 2))
+                              >> list.map((num: int) => num * 2))
+                              >> string.concat()
+                              >> string.upperCase()
+                              >> specializedMethod()
 ```
 
 ### 
