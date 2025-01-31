@@ -121,7 +121,15 @@ Errors are always checked and ignoring it is opt in.
 // default, errors need to be handled
 var response, err = myModule.triggerError()
 
-var response, = try myModule.triggerError() // captures paniced module func and returns the error as value
+// Different syntax possible
+var response = myModule.triggerError()!
+var response = panic myModule.triggerError()
+
+// Maybe panic is a function thats generic and takes a function that returns smth+error and wraps error handling
+var response = errors.panic(myModule.triggerError())
+
+// not part of std, part of the language
+var response = panic myModule.triggerError()
 ```
 
 ### parameter/return value mapping operator
