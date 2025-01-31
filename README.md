@@ -43,11 +43,7 @@ I often use these words in ways that are not strictly related to the meaning of 
     Abc: String
   )
 
-  type CreateParams {
-    fullname: String
-  }
-
-  type Human {
+  interface Human {
     speak(): Void
     shout(): Void
     eat(): Void
@@ -72,28 +68,28 @@ I often use these words in ways that are not strictly related to the meaning of 
   // Can be accessed by all files in src/humans (whole module)
   mod interalVariable: string
 
-  // Struct are implementations and only have attributes
-  // (thoughts) Need to think more about type def and struct initialization. And how it is going to be used
-  var admin: Human = { fullname = "" }
+  struct Niklas implements Human {
+    fullname: String
+    birthday: Date
+  }
 
-  var admin: Human[] = []
-
-   Human::speak(): void {
+  Niklas::speak(): void {
     io.console.writeLine(this.fullname)
   }
 
-  Human::shout(): void {
+  Niklas::shout(): void {
     io.console.writeLine(this.fullname.toUpperCase())
   }
 
-  Human::eat(): void {}
+  Niklas::eat(): void {}
 
   someInternalMethod(): void {
     io.console.writeLine(admin.toString())
   }
 
   newHuman(): Human {
-   return admin
+    var niklas: Niklas = { fullname: "Niklas", "08.06.1995" }
+    return niklas
   }
 
   triggerError(): String, Error {}
