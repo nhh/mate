@@ -53,11 +53,12 @@ I often use these words in ways that are not strictly related to the meaning of 
   // std -> standard lib
   // src -> user code
   // pkg -> dependencies
-  include "std/console"
-  include "pkg/yaml"
+  include "std/io/console"
+  include "std/array/list"
+  include "pkg/github.com/nhh/m8-yaml/yaml"
+
   include "src/human"
   
-
   // Can be accessed by all files in src/humans (whole module)
   mod interalVariable: string
 
@@ -67,17 +68,21 @@ I often use these words in ways that are not strictly related to the meaning of 
     fullname = ""
   }
 
+  var admin: Human[] = []
+
   Human::speak(): void {
-    console::writeLine(this.fullname)
+    io::console::writeLine(this.fullname)
   }
 
   Human::shout(): void {
-    console::writeLine(this.fullname.toUpperCase())
+    io::console::writeLine(this.fullname.toUpperCase())
   }
 
   Human::eat(): void {}
 
-  Human::someInternalMethod(): void {}
+  someInternalMethod(): void {
+    io::console::writeLine(admin.toString())
+  }
 
   newHuman(): Human {
    return admin
@@ -106,12 +111,23 @@ every `try` keyword captures exceptions being thrown and return it as seperate p
 ```
 var response = myModule.triggerError() // by default panic
 var response, error = try myModule.triggerError() // captures paniced module func and returns the error as value
+```
 
-// A function can mark its return value to inform the caller
-
-
+### parameter/return value mapping operator
 
 ```
+// I need generics
+map(T[], (T number):T): T[]
+filter(T[], (T number): T): T[]
+
+
+var numbers: int[] = [1,2,3,4,5,6]
+
+var myList = list.filter(numbers, (num: int) => num >= 2)) >> list.map((num: int) => num * 2))
+
+```
+
+### 
 
 ### conditional returns
 syntactic sugar for early exit/ guard clauses
