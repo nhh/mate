@@ -113,6 +113,17 @@ var response = myModule.triggerError() // by default panic
 var response, error = try myModule.triggerError() // captures paniced module func and returns the error as value
 ```
 
+EDIT: 31.01.2025 // After talking to Augusto
+
+Errors are always checked and ignoring it is opt in.
+
+```
+// default, errors need to be handled
+var response, err = myModule.triggerError()
+
+var response, = try myModule.triggerError() // captures paniced module func and returns the error as value
+```
+
 ### parameter/return value mapping operator
 
 ```
