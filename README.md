@@ -66,7 +66,7 @@ I often use these words in ways that are not strictly related to the meaning of 
   include "src/human"
   
   // Can be accessed by all files in src/humans (whole module)
-  mod interalVariable: string
+  var interalVariable: string
 
   struct Niklas implements Human {
     fullname: String
