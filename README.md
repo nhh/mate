@@ -328,3 +328,7 @@ class Human includes Formats {
 - Metaprogramming and Queryability
   - Queryable types like c#
   - Hooks extensibility like ruby
+
+### Links
+- https://langdev.stackexchange.com/questions/4325/how-do-modern-compilers-choose-which-variables-to-put-in-registers
+- 
