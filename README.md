@@ -1,5 +1,9 @@
 # Mate
 
+## Webassembly links
+- https://stackoverflow.com/questions/47529643/how-to-return-a-string-or-similar-from-rust-in-webassembly/47676844#47676844
+- https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html
+
 ## Syntax ideas
 
 ### module information (header/interface)
